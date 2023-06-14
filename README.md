@@ -1,2 +1,2 @@
 # traccarKmlFlow
-creates a kml network link of traccar clients from traccar server
+Node-Red Flow to create a KML Network Link of Traccar Client device locations.
