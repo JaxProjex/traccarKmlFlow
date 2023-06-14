@@ -1,2 +1,2 @@
 # traccarKmlFlow
-creates kmlnetwork link for traccar clients
+creates a kml network link of traccar clients from traccar server
