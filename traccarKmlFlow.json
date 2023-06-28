@@ -11,13 +11,13 @@
         "id": "6dd931465f0fe942",
         "type": "http response",
         "z": "706fd39a0ee9fb43",
-        "name": "host kml",
+        "name": "host test",
         "statusCode": "",
         "headers": {
             "content-type": "application/vnd.google-earth.kml+xml"
         },
-        "x": 1160,
-        "y": 720,
+        "x": 1120,
+        "y": 840,
         "wires": []
     },
     {
@@ -31,8 +31,8 @@
         "syntax": "plain",
         "template": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n\n<Document>\n\n<Style id=\"icon-0\">\n      <IconStyle>\n        <color>ff00ff00</color>\n        <scale>1</scale>\n        <Icon>\n          <href>https://earth.google.com/images/kml-icons/track-directional/track-0.png</href>\n        </Icon>\n      </IconStyle>\n</Style>\n\n<Placemark>\n\n    <styleUrl>#icon-0</styleUrl>\n\n    <name>Spot 2</name>\n\n    <Point>\n\n        <coordinates>144.253,-36.6632,0</coordinates>\n\n    </Point>\n\n</Placemark>\n\n<Placemark>\n\n    <name>Spot 3</name>\n\n    <Point>\n\n        <coordinates>144.2891,-36.6894,0</coordinates>\n\n    </Point>\n\n</Placemark>\n\n<Placemark>\n\n    <name>Spot 5</name>\n\n    <Point>\n\n        <coordinates>144.2344,-36.6907,0</coordinates>\n\n    </Point>\n\n</Placemark>\n\n</Document>\n\n</kml>",
         "output": "str",
-        "x": 370,
-        "y": 720,
+        "x": 450,
+        "y": 840,
         "wires": [
             [
                 "6dd931465f0fe942",
@@ -54,21 +54,21 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 800,
+        "x": 660,
+        "y": 920,
         "wires": []
     },
     {
         "id": "75913a19a4cbe509",
         "type": "http in",
         "z": "706fd39a0ee9fb43",
-        "name": "kml",
+        "name": "test",
         "url": "/test.kml",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 130,
-        "y": 720,
+        "x": 210,
+        "y": 840,
         "wires": [
             [
                 "b80c7ff8ec72dff5",
@@ -89,8 +89,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 260,
-        "y": 800,
+        "x": 380,
+        "y": 920,
         "wires": []
     },
     {
@@ -102,7 +102,7 @@
         "headers": {
             "content-type": "application/vnd.google-earth.kml+xml"
         },
-        "x": 2480,
+        "x": 2540,
         "y": 360,
         "wires": []
     },
@@ -118,8 +118,8 @@
         "y": 360,
         "wires": [
             [
-                "80a0409acd86c608",
-                "76d53e47581161ed"
+                "76d53e47581161ed",
+                "80a0409acd86c608"
             ]
         ]
     },
@@ -128,15 +128,15 @@
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug payload",
-        "active": true,
+        "active": false,
         "tosidebar": true,
-        "console": true,
+        "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2310,
+        "x": 2300,
         "y": 240,
         "wires": []
     },
@@ -149,11 +149,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1690,
+        "x": 1710,
         "y": 220,
         "wires": []
     },
@@ -172,7 +172,7 @@
             [
                 "1074e05979c98ea6",
                 "6aaff35fcaefc5e2",
-                "730e05783b078a9f"
+                "043204a26bcc2372"
             ]
         ]
     },
@@ -244,7 +244,7 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 790,
+        "x": 770,
         "y": 320,
         "wires": [
             [
@@ -278,7 +278,7 @@
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug http",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -286,7 +286,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
+        "x": 910,
         "y": 220,
         "wires": []
     },
@@ -295,12 +295,12 @@
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug sort",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 1190,
@@ -311,14 +311,14 @@
         "id": "89f1d2fc4ca1fa74",
         "type": "function",
         "z": "706fd39a0ee9fb43",
-        "name": "add device to kml",
-        "func": "var dirOffline = \"#icon-offline\"\nvar dirNone = \"#icon-stop\"\nvar dir0 = \"#icon-0\"\nvar dir45 = \"#icon-45\"\nvar dir90 = \"#icon-90\"\nvar dir135 = \"#icon-135\"\nvar dir180 = \"#icon-180\"\nvar dir225 = \"#icon-225\"\nvar dir270 = \"#icon-270\"\nvar dir315 = \"#icon-315\"\nvar dir;\nvar course = parseInt(msg.payload[1].course);\nvar status = msg.payload[0].status;\n\n//icon direction below\nif (status === \"online\" && (course > 338 || course <= 23)) {\n    dir = dir0;\n}\nelse if (status === \"online\" && (course > 23 && course <= 68)) {\n    dir = dir45;\n}\nelse if (status === \"online\" && (course > 68 && course <= 113)) {\n    dir = dir90;\n}\nelse if (status === \"online\" && (course > 113 && course <= 158)) {\n    dir = dir135;\n}\nelse if (status === \"online\" && (course > 158 && course <= 203)) {\n    dir = dir180;\n}\nelse if (status === \"online\" && (course > 203 && course <= 248)) {\n    dir = dir225;\n}\nelse if (status === \"online\" && (course > 248 && course <= 293)) {\n    dir = dir270;\n}\nelse if (status === \"online\" && (course > 293 && course <= 337)) {\n    dir = dir315;\n}\nelse if (status !== \"online\") {\n    dir = dirOffline;\n} else {\n    dir = dirNone;\n};\n\nvar name = String(msg.payload[0].name);\nvar lat = String(msg.payload[1].latitude);\nvar lon = String(msg.payload[1].longitude);\nvar coordinates = lon + \",\" + lat + \",0\";\nmsg.payload = {\n    \"styleUrl\": [\"\"+ dir +\"\"],\n    \"name\": [\"\"+ name +\"\"],\n    \"Point\": [{\n        \"coordinates\": [\"\"+ coordinates +\"\"]\n    }]\n};\n\nreturn msg;",
+        "name": "if/else statement",
+        "func": "var dirOffline = \"#icon-offline\"\nvar dirNone = \"#icon-stop\"\nvar dir0 = \"#icon-0\"\nvar dir45 = \"#icon-45\"\nvar dir90 = \"#icon-90\"\nvar dir135 = \"#icon-135\"\nvar dir180 = \"#icon-180\"\nvar dir225 = \"#icon-225\"\nvar dir270 = \"#icon-270\"\nvar dir315 = \"#icon-315\"\nvar dir;\nvar course = parseInt(msg.payload[1].course);\nvar status = msg.payload[0].status;\nvar motion = msg.payload[1].attributes.motion;\nvar speed = msg.payload[1].speed;\n\n//icon direction below\nif (status === \"online\" && motion === false && course === 0) {\n    dir = dirNone;\n}\nelse if (status === \"online\" && (course > 338 || course <= 23)) {\n    dir = dir0;\n}\nelse if (status === \"online\" && (course > 23 && course <= 68)) {\n    dir = dir45;\n}\nelse if (status === \"online\" && (course > 68 && course <= 113)) {\n    dir = dir90;\n}\nelse if (status === \"online\" && (course > 113 && course <= 158)) {\n    dir = dir135;\n}\nelse if (status === \"online\" && (course > 158 && course <= 203)) {\n    dir = dir180;\n}\nelse if (status === \"online\" && (course > 203 && course <= 248)) {\n    dir = dir225;\n}\nelse if (status === \"online\" && (course > 248 && course <= 293)) {\n    dir = dir270;\n}\nelse if (status === \"online\" && (course > 293 && course <= 337)) {\n    dir = dir315;\n}\nelse if (status !== \"online\") {\n    dir = dirOffline;\n} else {\n    dir = dirNone;\n};\n\nvar name = String(msg.payload[0].name);\nvar lat = String(msg.payload[1].latitude);\nvar lon = String(msg.payload[1].longitude);\nvar coordinates = lon + \",\" + lat + \",0\";\nmsg.payload = {\n    \"styleUrl\": [\"\"+ dir +\"\"],\n    \"name\": [\"\"+ name +\"\"],\n    \"Point\": [{\n        \"coordinates\": [\"\"+ coordinates +\"\"]\n    }]\n};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1250,
+        "x": 1240,
         "y": 320,
         "wires": [
             [
@@ -332,12 +332,12 @@
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug device",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 1440,
@@ -362,9 +362,9 @@
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
-        "reduceInitType": "",
+        "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1710,
+        "x": 1670,
         "y": 420,
         "wires": [
             [
@@ -378,12 +378,12 @@
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug join kml",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 1880,
@@ -424,12 +424,12 @@
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug xml",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 2450,
@@ -493,41 +493,16 @@
         ]
     },
     {
-        "id": "730e05783b078a9f",
-        "type": "delay",
-        "z": "706fd39a0ee9fb43",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 380,
-        "y": 420,
-        "wires": [
-            [
-                "043204a26bcc2372"
-            ]
-        ]
-    },
-    {
         "id": "3376b267a604ead0",
         "type": "debug",
         "z": "706fd39a0ee9fb43",
         "name": "debug kml object",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 2070,
@@ -542,8 +517,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 670,
-        "y": 680,
+        "x": 630,
+        "y": 800,
         "wires": [
             [
                 "c6922ecbbd1c8d3e",
@@ -555,16 +530,17 @@
         "id": "c6922ecbbd1c8d3e",
         "type": "debug",
         "z": "706fd39a0ee9fb43",
-        "name": "debug 32",
-        "active": true,
+        "name": "debug test3",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 580,
+        "x": 790,
+        "y": 720,
         "wires": []
     },
     {
@@ -587,27 +563,11 @@
         ]
     },
     {
-        "id": "3024672c3c394b2d",
-        "type": "debug",
-        "z": "706fd39a0ee9fb43",
-        "name": "debug 33",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1680,
-        "y": 500,
-        "wires": []
-    },
-    {
         "id": "a68fb9bd7f747611",
         "type": "debug",
         "z": "706fd39a0ee9fb43",
-        "name": "debug 34",
-        "active": true,
+        "name": "debug test4",
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -615,8 +575,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 620,
+        "x": 1000,
+        "y": 720,
         "wires": []
     },
     {
@@ -631,7 +591,6 @@
         "y": 420,
         "wires": [
             [
-                "3024672c3c394b2d",
                 "df692c0bde3b7404"
             ]
         ]
@@ -645,7 +604,7 @@
         "action": "",
         "pretty": false,
         "x": 830,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "a68fb9bd7f747611"
@@ -694,10 +653,10 @@
         "id": "568004e411bc5ba9",
         "type": "comment",
         "z": "706fd39a0ee9fb43",
-        "name": "traccarKmlFlow",
-        "info": "Network KML Link (default)\nhttp://<ipAddress>:1880/traccar.kml\nexample: http://10.237.104.23:1880/traccar.kml\n",
-        "x": 240,
-        "y": 200,
+        "name": "README",
+        "info": "Network KML Link (default)\nhttp://<ipAddress>:1880/traccar.kml\nexample: http://10.237.104.23:1880/traccar.kml\n\nREQUIREMENTS:\n\n-Node-Red Server\n\n-node-red-dashboard (node)\n\n-Traccar Server\n\nSETUP NODE-RED:\n\n-https://nodered.org/docs/getting-started/\n\n-options include installing node-red on your local PC, a Raspberry Pi or similar single board computer or mini PC, deploying node-red on a cloud server or virtual private server (VPS), Docker Container, or local virtual environment. After installing node-red you should be able to go to the node-red dashboard at http://node-red-ip-address:1880 you may have to open appropriate ports (1880) to allow devices to access the node-red dashboard.\n\n-ensure you install the \"node-red-dashboard\" node. If not there should be a prompt when you import traccarKmlFlow in Node-Red that there are nodes that need to be installed and will automatically install them for you if you allow. In the event that isnt the case, in Node-Red: Menu (3 horizontal lines) > Manage palette > Install > Search \"node-red-dashboard\" > Install > Install\n\nIMPORT .JSON FLOW TO NODE RED:\n\n-in GitHub: click on \"traccarKmlFlow.json\" > click on the download icon \"Download raw file\" > note where the \"traccarKmlFlow.json\" file downloaded to, default is in your Downloads folder\n\n-in Node-Red: click on menu icon (3 horizontal lines top right) > click on \"Import\" > click on \"select a file to import\" > go to Downloads folder and click on \"traccarKmlFlow.json\" > Upload > Import\n\nALTERNATIVELY..\n\n-you can just copy the whole \"traccarKmlFlow.json\" code from GitHub and paste it into the Node-Red Import Clipboard.\n\nSETUP TRACCAR SERVER:\n\n-https://www.traccar.org/download/\n\n-Traccar Server can be hosted on various platforms: Raspberry Pi, Mini PCs, your local PC, Cloud Servers or Virtual Private Servers (VPS), Docker Containers, or Virtual Environments.\n\nCONFIGURE BOTH HTTP NODES:\n\n-in Node-Red: input your Traccar Server IP address and port (default port is 8082) for both http req nodes\n\nUSING THE TRACCARKMLFLOW:\n\n-network KML link will be: http://node-red-ip-address:1880/traccar.kml\n\n-this can be used with various mapping applications that accept network KMLs such as Google Earth and ATAK.\n\nHOW THE TRACCARKMLFLOW WORKS:\n\n-the http in node creates the endpoint of http://...traccar.kml, so when a device queues it via KML network link it will then request device and position information from traccar server of all devices. Sort the devices and position information by position ID, join the sorted device and positions, sort the joined array of all devices and positions and then sort them again by attaching the correct device with the correct position information and sending it as a separate payload. The if/else node chooses which icon (shape/color) best suites the status of the device to be placed on the map, additionally the node also starts to consolidate the important information that needs to get put into the KML readable format. The join node gathers all the devices after running through the if/else to then be joined with another join node which helps place the traccar devices into XML Placemark. Add devices to kml node then grabs the XML Placemark payload for all devices and stores them in the appropriate Placemark array. Format payload fixes how its structured by taking away the fact that all the info is in one array element and not an object (I asked too much of array manipulation throughout the flow and this is it coming back to bite me). The XML node parses the data so instead of a json object its in xml tag which turns the whole payload into readable KML. Host kml provides the response of this readable KML.\n\nTEST / TROUBLESHOOT FLOW:\n\n-http://node-red-ip-address:1880/test.kml\n\n-the test / troubleshoot flow below is for any data manipulation you want to test out to add any styling to icons or remarks etc.",
+        "x": 220,
+        "y": 120,
         "wires": []
     },
     {
@@ -705,9 +664,39 @@
         "type": "comment",
         "z": "706fd39a0ee9fb43",
         "name": "test / troubleshoot",
+        "info": "test waypoints are located in Victoria, Australia. I dont know, i just pulled an example from somewhere and then get changed for testing purposes...",
+        "x": 270,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "87f3d7c7e6f2a114",
+        "type": "comment",
+        "z": "706fd39a0ee9fb43",
+        "name": "configure both http req",
+        "info": "for both \"http req\" nodes: add in your traccar server ip and port along with your basic auth username and password for your traccar server",
+        "x": 420,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "57ba39b9dfe7ed05",
+        "type": "comment",
+        "z": "706fd39a0ee9fb43",
+        "name": "http://<yourIPaddress>:1880/traccar.kml",
         "info": "",
-        "x": 250,
-        "y": 640,
+        "x": 240,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "0e3bfd030bbeb00c",
+        "type": "comment",
+        "z": "706fd39a0ee9fb43",
+        "name": "http://node-red-ip-address:1880/test.kml",
+        "info": "",
+        "x": 320,
+        "y": 800,
         "wires": []
     }
 ]
