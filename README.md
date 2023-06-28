@@ -3,6 +3,9 @@ Node-Red Flow to create a KML Network Link of Traccar Client device locations.
 
 ![flow](/traccarKmlFlow1.png?raw=true "Node Red Flow")
 
+![flow](/traccarKmlATAK.png?raw=true "Node Red Flow")
+
+
 REQUIREMENTS:
 
 -Node-Red Server
